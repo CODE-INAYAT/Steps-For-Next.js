@@ -1,0 +1,47 @@
+Steps to deploy the next.js:-
+
+Setup of Local :-
+1. Edit your schema.prisma file:
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+2. Option A: Use Supabase (easy, free, cloud-based)
+Sign up at supabase.com.
+Create a new project.
+Go to Project Settings → Database → Connection string.
+Copy the postgresql://... connection string.
+
+3. Update Your Local .env
+Open .env and set:
+DATABASE_URL=postgresql://<username>:<password>@<host>:<port>/<database>
+
+4. .dockerignore
+Remove any line that says package-lock.json
+
+5.  Check lockfile version
+"lockfileVersion": 2
+
+6. Add a postinstall Script in package.json
+"scripts": {
+  // ...existing scripts...
+  "postinstall": "prisma generate"
+}
+
+Step 4: Install Dependencies
+In your project folder, run:
+npm install
+
+
+Step 5: Generate Prisma Client
+npx prisma generate
+
+
+Step 6: Run Migrations to Set Up the Database
+npx prisma migrate dev --name init
+
+
+Deployment:
+1. Set below build command:
+npm install && npx prisma migrate deploy && npx prisma generate && npm run build
