@@ -1,0 +1,11 @@
+1. Change the prisma.schema for the mongodb
+
+2. Generate connecting string, From node method in the cluster of mongodb
+
+3. Update .env:
+DATABASE_URL="mongodb+srv://myuser:mypass123@clustergradnexus.dnhcbxj.mongodb.net/gradnexus?retryWrites=true&w=majority"
+-Add /gradnexus (or any database name) after your cluster URL and before the ?
+
+4. npx prisma generate
+
+5. npx prisma db push
