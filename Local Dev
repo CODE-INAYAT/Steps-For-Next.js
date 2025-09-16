@@ -1,0 +1,12 @@
+1. npm install
+
+2. create .env file with content :
+	DATABASE_URL="file:./dev.db"
+	NODE_ENV="development"
+
+3. npm run db:push
+
+4. Change dev content in package.json with this:
+	"dev": "nodemon --exec \"npx tsx server.ts\" --watch server.ts --watch src --ext ts,tsx,js,jsx",
+
+5. npm run dev
