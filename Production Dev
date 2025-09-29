@@ -45,3 +45,5 @@ npx prisma migrate dev --name init
 Deployment:
 1. Set below build command:
 npm install && npx prisma migrate deploy && npx prisma generate && npm run build
+
+npm install && npx prisma generate && npx prisma migrate dev --name init && npm run build
